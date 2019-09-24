@@ -7,16 +7,23 @@
 </head>
 <body>
 <div id="app">
-    {{ message }}
+    {{ a }}
 </div>
 
 <script>
-    var app = new Vue({
+    var data = {a: 1}
+    var vm = new Vue({
         el: '#app',
-        data: {
-            message: 'Hello Vue!'
-        }
+        data: data,
     })
+
+    vm.$watch('a', function (newVal, oldVal) {
+        console.log(newVal, oldVal)
+    })
+
+    // vm.a = 2
+    vm.$data.a = 'test.....'
+
 </script>
 </body>
 </html>
