@@ -9,6 +9,11 @@
 <div id="app">
     <p v-if="seen">现在你看到我了</p>
     <a v-bind:href="url">...</a>
+    <div @click="click1">
+        <div @click.stop="click2">
+            click me
+        </div>
+    </div>
 </div>
 <script>
     var vm = new Vue({
@@ -16,6 +21,14 @@
         data: {
             seen: true,
             url: ""
+        },
+        methods:{
+            click1: function () {
+                console.log('click1......');
+            },
+            click2: function () {
+                console.log('click2......')
+            }
         }
     })
 </script>
