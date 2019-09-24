@@ -7,23 +7,35 @@
 </head>
 <body>
 <div id="app">
-    {{ a }}
+    {{ msg }}
 </div>
 
 <script>
-    var data = {a: 1}
     var vm = new Vue({
         el: '#app',
-        data: data,
+        data: {
+            msg: 'hi vue'
+        },
+        beforeCreate: function () {
+            console.log('beforeCreate')
+        },
+        created: function () {
+            console.log('created')
+        },
+        beforeMount: function () {
+            console.log('beforeMount')
+        },
+        mounted: function () {
+            console.log('mounted')
+        },
+        beforeUpdate: function () {
+            console.log('beforeUpdate')
+        },
+        updated: function () {
+            console.log('updated')
+        }
     })
-
-    vm.$watch('a', function (newVal, oldVal) {
-        console.log(newVal, oldVal)
-    })
-
-    // vm.a = 2
-    vm.$data.a = 'test.....'
-
+    vm.$data.msg = 'hello vue'
 </script>
 </body>
 </html>
