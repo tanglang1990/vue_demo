@@ -12,13 +12,19 @@
          v-bind:class="{ active: isActive, green: isGreen}">
         hi vue
     </div>
+    <div :style="{color:color, fontSize:size, background: isRed ? '#FF0000' : '#000000'}">
+        hello vue
+    </div>
 </div>
 <script>
     var vm = new Vue({
         el: '#app',
         data: {
             isActive: true,
-            isGreen: false
+            isGreen: false,
+            color: '#FFFFFF',
+            size: '50px',
+            isRed: true
         },
     })
 </script>
