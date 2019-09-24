@@ -7,32 +7,14 @@
 </head>
 <body>
 <div id="app">
-    {{ msg }}
+    <span>{{ msg }}</span><br/>
+    <span v-once>这个将不会改变: {{ msg }}</span>
 </div>
-
 <script>
     var vm = new Vue({
         el: '#app',
         data: {
             msg: 'hi vue'
-        },
-        beforeCreate: function () {
-            console.log('beforeCreate')
-        },
-        created: function () {
-            console.log('created')
-        },
-        beforeMount: function () {
-            console.log('beforeMount')
-        },
-        mounted: function () {
-            console.log('mounted')
-        },
-        beforeUpdate: function () {
-            console.log('beforeUpdate')
-        },
-        updated: function () {
-            console.log('updated')
         }
     })
     vm.$data.msg = 'hello vue'
