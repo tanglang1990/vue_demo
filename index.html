@@ -10,15 +10,23 @@
     <p>{{ msg }}</p>
     <p>Using mustaches: {{ rawHtml }}</p>
     <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+    <div v-bind:class="test_div">test...</div>
 </div>
 <script>
     var vm = new Vue({
         el: '#app',
         data: {
             msg: 'hi vue',
-            rawHtml: '<span style="color: red">This should be red.</span>'
+            rawHtml: '<span style="color: red">This should be red.</span>',
+            test_div: 'blue'
         }
     })
 </script>
+<style>
+    .blue {
+        color: blue;
+        font-size: 100px
+    }
+</style>
 </body>
 </html>
