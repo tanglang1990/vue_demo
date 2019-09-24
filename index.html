@@ -7,30 +7,31 @@
 </head>
 <body>
 <div id="app">
-    <p v-if="seen">现在你看到我了</p>
-    <a v-bind:href="url">...</a>
-    <div @click="click1">
-        <div @click.stop="click2">
-            click me
-        </div>
+    <div style="width: 200px; height: 200px; text-align: center; line-height: 200px"
+         class="test"
+         v-bind:class="{ active: isActive, green: isGreen}">
+        hi vue
     </div>
 </div>
 <script>
     var vm = new Vue({
         el: '#app',
         data: {
-            seen: true,
-            url: ""
+            isActive: true,
+            isGreen: false
         },
-        methods:{
-            click1: function () {
-                console.log('click1......');
-            },
-            click2: function () {
-                console.log('click2......')
-            }
-        }
     })
 </script>
+<style>
+    .test{
+        font-size: 30px;
+    }
+    .green{
+        color: #00FF00;
+    }
+    .active{
+        background: red;
+    }
+</style>
 </body>
 </html>
