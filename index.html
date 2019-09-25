@@ -72,6 +72,8 @@
 				</option>
 			</select>
 			<span>Selected: {{ selected2 }}</span>
+			
+			<button type="button" @click="submit">提交</button>
 
 		</div>
 		<script>
@@ -99,6 +101,18 @@
 							value: 'C'
 						}
 					]
+				},
+				methods:{
+					submit: function(){
+						console.log(this.message);
+						var postObj = {
+							msg1: this.message,
+							msg2: this.message2,
+							is_checked: this.checked,
+							checkval: this.checkedNames
+						}
+						console.log(postObj);
+					}
 				}
 			})
 		</script>
