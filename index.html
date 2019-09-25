@@ -9,7 +9,8 @@
 		<div id="app">
 			<div>
 				<button v-on:click="counter += 1"> 数值： {{counter}}</button><br />
-				<button v-on:click="greet">Greet</button>
+				<button v-on:click="greet('hello vue')">Greet</button><br />
+				<button v-on:dblclick="greet_with_event('hello vue', $event)">GreetWitEvent</button><br />
 			</div>
 		</div>
 		<script>
@@ -19,10 +20,18 @@
 					counter: 0,
 					name: 'vue'
 				},
-				methods:{
-					greet: function(){
+				methods: {
+					greet: function(msg) {
 						console.log('hi vue');
-						console.log('hello ' + this.name )
+						// `this` 在方法里指向当前 Vue 实例
+						console.log('hi ' + this.name + '!' )
+						console.log(msg);
+					},
+					greet_with_event: function(msg, event){
+						 // `event` 是原生 DOM 事件
+						console.log(event)
+						console.log(event.type);
+						console.log(event.target.tagName);
 					}
 				}
 			})
