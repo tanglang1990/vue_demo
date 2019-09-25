@@ -9,6 +9,7 @@
 		<div id="app">
 			<div>
 				<button v-on:click="counter += 1"> 数值： {{counter}}</button><br />
+				<button v-on:click="greet">Greet</button>
 			</div>
 		</div>
 		<script>
@@ -16,7 +17,14 @@
 				el: '#app',
 				data: {
 					counter: 0,
+					name: 'vue'
 				},
+				methods:{
+					greet: function(){
+						console.log('hi vue');
+						console.log('hello ' + this.name )
+					}
+				}
 			})
 			setTimeout(function() {
 				vm.type = 'C'
