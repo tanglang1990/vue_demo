@@ -7,44 +7,15 @@
 	</head>
 	<body>
 		<div id="app">
-			<ul>
-				<li v-for="good in goods">
-					{{ good.id }} {{good.name}}
-				</li>
-			</ul>
-			<hr>
-			<ul>
-				<li v-for="attr_value in book">
-					{{ attr_value }}
-				</li>
-			</ul>
-			<hr>
-			<ul>
-				<li v-for="attr_value, attr_key in book">
-					{{ attr_key }}: {{ attr_value }}
-				</li>
-			</ul>
+			<div>
+				<button v-on:click="counter += 1"> 数值： {{counter}}</button><br />
+			</div>
 		</div>
 		<script>
 			var vm = new Vue({
 				el: '#app',
 				data: {
-					goods: [{
-							id: 1,
-							name: 'apple',
-							price: 7.0
-						},
-						{
-							id: 2,
-							name: 'balala',
-							price: 3.0
-						}
-					], 
-					book:{
-						title: 'How to do lists in Vue',
-						author: 'Jane Doe',
-						publishedAT: '2019-09-25'
-					}
+					counter: 0,
 				},
 			})
 			setTimeout(function() {
