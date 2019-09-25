@@ -7,99 +7,20 @@
 	</head>
 	<body>
 		<div id="app">
-			<h3>文本</h3>
-			<input v-model="message" placeholder="edit me">
-			<p>Message is: {{ message }}</p>
-
-			<h3>多行文本</h3>
-			<textarea v-model="message1" placeholder="add multiple lines"></textarea>
-			<p>Multiline message is:</p>
-			<p style="white-space: pre-line;">{{ message1 }}</p>
-
-			<h3>复选框(单个)</h3>
-			<input type="checkbox" id="checkbox" v-model="checked">
-			<label for="checkbox">是否选中：{{ checked }}</label>
-
-			<h3>复选框(多个)</h3>
-			<div id='example-3'>
-				<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-				<label for="jack">Jack</label>
-				<input type="checkbox" id="john" value="John" v-model="checkedNames">
-				<label for="john">John</label>
-				<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
-				<label for="mike">Mike</label>
-				<br>
-				<span>Checked names: {{ checkedNames }}</span>
-			</div>
-
-			<h3>单选按钮</h3>
-			<div id="example-4">
-				<input type="radio" id="one" value="One" v-model="picked">
-				<label for="one">One</label>
-				<br>
-				<input type="radio" id="two" value="Two" v-model="picked">
-				<label for="two">Two</label>
-				<br>
-				<span>Picked: {{ picked }}</span>
-			</div>
-
-			<h3>选择框(单选)</h3>
-			<div id="example-5">
-				<select v-model="selected">
-					<option disabled value="">请选择</option>
-					<option>A</option>
-					<option>B</option>
-					<option>C</option>
-				</select>
-				<span>Selected: {{ selected }}</span>
-			</div>
-
-			<h3>选择框(多选)</h3>
-			<div id="example-6">
-				<select v-model="selected1" multiple style="width: 50px;">
-					<option>A</option>
-					<option>B</option>
-					<option>C</option>
-				</select>
-				<br>
-				<span>Selected: {{ selected1 }}</span>
-			</div>
-
-			<h3>选择框(用v-for渲染的动态选项)</h3>
-			<select v-model="selected2">
-				<option v-for="option in options" v-bind:value="option.value">
-					{{ option.text }}
-				</option>
-			</select>
-			<span>Selected: {{ selected2 }}</span>
-
+			<button-counter></button-counter>
 		</div>
 		<script>
+			Vue.component('button-counter', {
+				data: function() {
+					return {
+						count: 0
+					}
+				},
+				template: '<button v-on:click="count++" >You clicked me {{ count }} times. </button>'
+			})
 			var vm = new Vue({
-				el: '#app',
-				data: {
-					message: "",
-					message1: "",
-					checked: false,
-					checkedNames: [],
-					picked: "",
-					selected: '',
-					selected1: [],
-					selected2: 'A',
-					options: [{
-							text: 'One',
-							value: 'A'
-						},
-						{
-							text: 'Two',
-							value: 'B'
-						},
-						{
-							text: 'Three',
-							value: 'C'
-						}
-					]
-				}
+				el: "#app",
+				data: {}
 			})
 		</script>
 	</body>
