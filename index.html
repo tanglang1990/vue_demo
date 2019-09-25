@@ -19,12 +19,14 @@
 			<div v-else>
 				Not A/B/C
 			</div>
+			<h1 v-show="show_h1">hello vue!</h1>
 		</div>
 		<script>
 			var vm = new Vue({
 				el: '#app',
 				data: {
 					type: 'B',
+					show_h1: true,
 				},
 			})
 		</script>
