@@ -7,7 +7,9 @@
 	</head>
 	<body>
 		<div id="app">
-			<button-counter title="title1" @clicknow="is_clicked"></button-counter>
+			<button-counter title="title1" @clicknow="is_clicked">
+				<h3>hi i am in slot</h3>
+			</button-counter>
 			<button-counter title="title2"></button-counter>
 		</div>
 		<script>
@@ -18,7 +20,7 @@
 						count: 0
 					}
 				},
-				template: '<button v-on:click="clickfun" >{{title}}: You clicked me {{ count }} times. </button>',
+				template: '<div><button v-on:click="clickfun" >{{title}}: You clicked me {{ count }} times. </button><slot></slot></div>',
 				methods: {
 					clickfun: function() {
 						this.count++;
